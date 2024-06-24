@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{ base :: Layout(~{::title}, ~{::section} )}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+<style>
+body, html {
+	height: 100%;
+	margin: 0;
+	font-family: Arial, sans-serif;
+}
+
+.slideshow-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.slideshow-container img {
+	width: 100%;
+	height: auto;
+	display: none;
+}
+
+.slideshow-container img:first-child {
+	display: block;
+}
+
+.fade-in {
+	animation: fade-in 3s infinite;
+}
+
+@keyframes fade-in {
+	0% { opacity: 0; }
+	25% { opacity: 1; }
+	75% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+
+.overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: white;
+}
+
+.overlay h1, .overlay p {
+	margin: 50%;
+	padding: 0;
+}
+
+.get-started-button {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 20px;
+	color: white;
+	background-color: #007bff;
+	border: none;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.get-started-button:hover {
+	background-color: #0056b3;
+}
+
+.logo-container {
+	position: fixed; /* Keeps the logo fixed at the top-left corner */
+	top: 10px; /* Adjust the position from the top */
+	left: 10px; /* Adjust the position from the left */
+}
+
+/* Style for the logo image */
+.logo {
+	width: 100px; /* Adjust the width as needed */
+	height: auto; /* Maintain aspect ratio */
+}
+</style>
+</head>
+<body>
+
+	<section>
+
+
+		<div class="container-fluid p-0 m-0"
+			style="position: relative; width: 100%; height: 100%; overflow: hidden;">
+			<!-- Check if the user is logged in -->
+			<th:block th:if="${session.user}">
+				<!-- If logged in, use this background image -->
+				<img src="/img/home2.jpeg" alt="" style="width: 100%; height: 100%;" />
+				
+			</th:block>
+			<th:block th:unless="${session.user}">
+				<!-- If not logged in, use this background image -->
+				<img src="/img/home1.jpeg" alt="" style="width: 100%; height: 100%;" />
+				 
+			</th:block>
+			
+
+			<div class="overlay">
+				<!-- <h1>Welcome to ENotes</h1> -->
+				<h1
+					th:text="${session.user != null} ? 'Welcome ' + ${session.user.name} + ' to your ENotes' : 'Welcome to ENotes'"></h1>
+				<p>Your one-stop destination for managing all your notes!</p>
+				
+				
+
+				<th:block th:if="${session.user == null}">
+					<a href="/register" class="get-started-button">Get Started</a>
+				</th:block>
+
+				<th:block th:if="${session.user}">
+					<a href="/Get" class="get-started-button">Get Started</a>
+				</th:block>
+				<!--  <a href="/register" class="get-started-button">Get Started</a> -->
+			</div>
+
+		</div>
+
+
+
+
+
+
+	</section>
+
+
+
+
+</body>
+</html>
+<!-- <span th:text="${session.user.name}"></span> -->

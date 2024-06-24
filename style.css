@@ -1,0 +1,93 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* .backimg{
+	background:url("../img/notes.jpeg");
+	height: 100vh;
+	width:100%;
+	background-size: cover;
+	 background-position: center;
+	
+} */
+
+.navbar .nav-item .nav-link{
+	font-size:20px;
+	color:white;
+}
+.navbar .nav-item:hover .nav-link{
+	background:black;
+	color:white;
+	border-radius:10px;
+}
+.custom-margin {
+        margin-bottom: 20px; /* Adjust the value as needed */
+    }
+    
+    .texr-center {
+    text-align: center; /* Center-align the text */
+}
+
+.mt-3 {
+    margin-top: 3rem; /* Adjust the top margin */
+}
+
+ .md-10 {
+    /* You may adjust the styles for larger screens if needed */
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#blink-text {
+    animation: blink 1s infinite; /* Blink animation for 1 second */
+}
+
+/* Center-align content */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black; /* Text color */
+}
+
+/* Style for the Get Started button */
+.get-started-button {
+    background-color: #0080ff;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    animation: blink 1s infinite; /* Blink animation for 1 second */
+}
+
+/* Keyframes for the blink animation */
+@keyframes blink {
+        0% { opacity: 1; }
+    40% { opacity: 0; }
+    60% { opacity: 1; }
+    100% { opacity: 1; }
+}
+ .success-message {
+            display: none;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+
+ }
+    
+

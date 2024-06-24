@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+
+    th:replace="~{ base :: Layout(~{::title}, ~{::section} )}">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Profile</title>
+</head>
+<body>
+<section>
+
+ <div class="container">
+        <h1>User Profile</h1>
+        <!-- Button to open modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userDetailsModal">
+            View User Details
+        </button>
+
+        <!-- Modal for displaying user details -->
+        <div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userDetailsModalLabel">User Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>User ID:</strong> <span th:text="${user.id}"></span></p>
+                        <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+                        <p><strong>Name:</strong> <span th:text="${user.name}"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   <!-- File Upload Input -->
+        <form action="/uploadProfilePicture" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="photo">Upload Profile Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+</section>
+
+
+</body>
+</html>
